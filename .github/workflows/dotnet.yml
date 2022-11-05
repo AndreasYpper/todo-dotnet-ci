@@ -20,8 +20,10 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore
+    - name: Restore dependencies API
+      run: dotnet restore Todo.API/todo-api.csproj
+    - name: Restore dependencies Test
+      run: dotnet restore Todo.Test/Todo.Test.csproj
     - name: Build
       run: dotnet build --no-restore
     - name: Test

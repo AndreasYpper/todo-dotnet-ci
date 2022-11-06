@@ -24,7 +24,9 @@ jobs:
       run: dotnet restore Todo.API/todo-api.csproj
     - name: Restore dependencies Test
       run: dotnet restore Todo.Test/Todo.Test.csproj
-    - name: Build
-      run: dotnet build --no-restore
+    - name: Build Api
+      run: dotnet build --no-restore Todo.API/todo-api.csproj
+    - name: Build Test
+      run: dotnet build --no-restore Todo.Test/Todo.Test.csproj
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal Todo.Test
